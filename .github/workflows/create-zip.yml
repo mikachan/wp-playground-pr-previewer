@@ -1,0 +1,21 @@
+name: Create Theme Zip
+
+on:
+  pull_request_target: # When a PR is opened
+    types: [opened]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./handle-theme-zip.sh
+
+      # - uses: vimtor/action-zip@v1
+      #   with:
+      #     files: dist/ manifest.json
+      #     dest: theme-name.zip
+      # - uses: actions/upload-artifact@v1
+      # with:
+      #   name: theme-name
+      #   path: ${{ github.workspace }}/theme-name.zip
