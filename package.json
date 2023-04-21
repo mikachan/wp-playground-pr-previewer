@@ -1,0 +1,22 @@
+{
+  "name": "wp-playground-pr-previewer",
+  "version": "1.0.0",
+  "description": "Trying out WordPress Playground as a PR previewer for themes.",
+  "main": "playground-previewer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikachan/wp-playground-pr-previewer.git"
+  },
+  "author": "Sarah Norris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikachan/wp-playground-pr-previewer/issues"
+  },
+  "homepage": "https://github.com/mikachan/wp-playground-pr-previewer#readme",
+  "dependencies": {
+    "@wp-playground/client": "^0.1.25"
+  }
+}
