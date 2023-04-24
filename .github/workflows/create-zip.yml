@@ -13,9 +13,9 @@ jobs:
       - name: Get list of changed files
         id: git-diff
         run: |
-          CHANGED_DIRS=($(git diff --name-only HEAD origin/main | xargs -n 1 dirname | awk '!a[$0]++' | awk '!/^(\.)/{print}'))
+          CHANGED_DIRS=($(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs -n 1 dirname | awk '!a[$0]++' | awk '!/^(\.)/{print}'))
           echo "${CHANGED_DIRS[@]}"
-          
+
       # - uses: vimtor/action-zip@v1
       #   with:
       #     files: dist/ manifest.json
