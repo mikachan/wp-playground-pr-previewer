@@ -1,8 +1,9 @@
 name: Create Theme Zip
 
 on:
-  pull_request_target: # When a PR is opened
-    types: [opened]
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   find-changed-directories:
