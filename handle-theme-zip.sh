@@ -2,11 +2,12 @@
 
 handleThemeZip=()
 
-pr_sha="$1"
-sha="$2"
+pr_hash="$1"
+current_hash="$2"
 
 for theme in $(find * -type d); do
-    if git diff --name-only --diff-filter=ACMRT $pr_sha $sha | grep -c "^$i/"; then
+    echo $i
+    if git diff --name-only --diff-filter=ACMRT $pr_hash $current_hash | grep -c "^$i/"; then
         for e in "${handleThemeZip[@]}"; do
             [[ "$theme" == "$e"* ]] && continue 2
         done
