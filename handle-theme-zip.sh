@@ -1,3 +1,5 @@
+#!/bin/bash
+
 handleThemeZip=()
 
 for theme in $(find * -type d); do
