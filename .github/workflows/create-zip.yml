@@ -13,12 +13,9 @@ jobs:
       - name: Get list of changed files
         id: git-diff
         run: |
-          CHANGED_DIRS=($(git diff --name-only HEAD origin/main | awk -F/ '{print $1}' | uniq))
-          echo "::set-output name=changed_dirs::${CHANGED_DIRS[@]}"
-      - name: Print list of changed directories
-        run: |
-          echo "Changed directories: ${{ steps.git-diff.outputs.changed_dirs }}"
-
+          CHANGED_DIRS=($(git diff --name-only HEAD origin/main | xargs -n 1 dirname | awk '!a[$0]++' | awk '!/^(\.)/{print}'))
+          echo "${CHANGED_DIRS[@]}"
+          
       # - uses: vimtor/action-zip@v1
       #   with:
       #     files: dist/ manifest.json
