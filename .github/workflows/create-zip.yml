@@ -8,7 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Build theme zip
+      - uses: actions/checkout@v3
       - run: ./handle-theme-zip.sh
 
       # - uses: vimtor/action-zip@v1
