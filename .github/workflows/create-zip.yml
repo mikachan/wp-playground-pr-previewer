@@ -1,8 +1,9 @@
 name: Create Theme Zip
 
 on:
-  pull_request_target: # When a PR is opened
-    types: [opened]
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   find-changed-directories:
@@ -12,21 +13,19 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Get changed files in the docs folder
+      - name: Get changed theme
         id: changed-themes
         uses: tj-actions/changed-files@v35
         with:
           dir_names: true
-          # dir_names_exclude_root: true
-          # dir_names_max_depth: 2
-          # files_ignore: .github
-      - name: List all changed files
+          dir_names_max_depth: 2
+          files_ignore: .github
+      - name: Create zip for changed theme
         run: |
-          for file in ${{ steps.changed-themes.outputs.all_changed_files }}; do
-            echo "$file was changed"
+          for theme in ${{ steps.changed-themes.outputs.all_changed_files }}; do
+            echo "Creating $theme .zip"
+            zip -r -X $theme.zip $theme
           done
-        # run: |
-        #   echo "${{ steps.changed-themes.outputs.all_changed_files }}"
 
       # - uses: vimtor/action-zip@v1
       #   with:
