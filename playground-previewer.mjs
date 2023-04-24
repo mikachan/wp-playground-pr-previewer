@@ -1,6 +1,6 @@
 import { connectPlayground, login, installTheme } from '@wp-playground/client';
 
-const themeZipUrl = process.argv[ 0 ];
+const themeZipUrl = process.argv[ 2 ];
  
 const client = await connectPlayground(
     // Any iframe:
