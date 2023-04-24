@@ -26,11 +26,6 @@ jobs:
             echo "Creating $theme .zip"
             zip -r -X $theme.zip $theme
           done
-      - name: Upload theme zip file
-        uses: actions/upload-artifact@v1
-        with:
-          name: $theme
-          path: ${{ github.workspace }}/$theme.zip
 
       # - uses: vimtor/action-zip@v1
       #   with:
