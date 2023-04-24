@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ./handle-theme-zip.sh github.event.pull_request.base.sha github.sha
+      - run: ./handle-theme-zip.sh ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
 
       # - uses: vimtor/action-zip@v1
       #   with:
