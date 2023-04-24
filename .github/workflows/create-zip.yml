@@ -25,7 +25,7 @@ jobs:
           for theme in ${{ steps.changed-themes.outputs.all_changed_files }}; do
             echo "Creating $theme .zip"
             zip -r -X $theme.zip $theme
-            node npm i
+            npm ci
             node ./playground-previewer.mjs $theme.zip
           done
 
