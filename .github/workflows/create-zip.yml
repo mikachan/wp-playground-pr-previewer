@@ -17,8 +17,8 @@ jobs:
         uses: tj-actions/changed-files@v35
         with:
           files: \b\/\S*
-        run: |
-          echo "${{ steps.changed-themes.outputs.all_changed_files }}"
+        # run: |
+        #   echo "${{ steps.changed-themes.outputs.all_changed_files }}"
 
       # - uses: vimtor/action-zip@v1
       #   with:
