@@ -16,7 +16,7 @@ jobs:
         id: changed-themes
         uses: tj-actions/changed-files@v35
         with:
-          files: \b\/\S*
+          files: *
         # run: |
         #   echo "${{ steps.changed-themes.outputs.all_changed_files }}"
 
