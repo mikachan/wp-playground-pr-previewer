@@ -25,6 +25,7 @@ jobs:
           for theme in ${{ steps.changed-themes.outputs.all_changed_files }}; do
             echo "$theme was changed"
             zip -r -X $theme.zip $theme
+            echo ${{ github.workspace }}/$theme.zip
           done
 
       # - uses: vimtor/action-zip@v1
