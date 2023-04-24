@@ -5,12 +5,28 @@ on:
     types: [opened]
   workflow_dispatch:
 jobs:
-  deploy:
+  find-changed-directories:
     runs-on: ubuntu-latest
     steps:
-      - name: Build theme zip
-      - uses: actions/checkout@v3
-      - run: ./handle-theme-zip.sh
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get changed files in the docs folder
+        id: changed-themes
+        uses: tj-actions/changed-files@v35
+        with:
+          dir_names: true
+          dir_names_exclude_root: true
+          dir_names_max_depth: 1
+          files_ignore: .github
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-themes.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+        # run: |
+        #   echo "${{ steps.changed-themes.outputs.all_changed_files }}"
 
       # - uses: vimtor/action-zip@v1
       #   with:

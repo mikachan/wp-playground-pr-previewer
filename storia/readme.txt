@@ -12,6 +12,9 @@ A visual story theme.
 
 == Changelog ==
 
+= 1.1 =
+Test update
+
 = 1.0 =
 * Initial release
 
