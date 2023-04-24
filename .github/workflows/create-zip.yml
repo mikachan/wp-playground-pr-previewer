@@ -25,12 +25,8 @@ jobs:
           for theme in ${{ steps.changed-themes.outputs.all_changed_files }}; do
             echo "Creating $theme .zip"
             zip -r -X $theme.zip $theme
-            node ${{ github.action_path }}/playground-previewer.js $theme.zip
+            node ${{ github.action_path }}/playground-previewer.mjs $theme.zip
           done
-      - uses: actions/upload-artifact@v3
-        with:
-          name: theme name
-          path: ${{ github.workspace }}/theme-name.zip
 
       # - uses: vimtor/action-zip@v1
       #   with:
